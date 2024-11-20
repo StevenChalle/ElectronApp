@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  deepcloud-frontend:
+    container_name: deepcloud-frontend
+    image: deepcloud-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    env_file:
+      - .env
+    volumes:
+      - ./:/app/
+    ports:
+      - 8080:8080
+    command: yarn dev
