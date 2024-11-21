@@ -1,11 +1,14 @@
-build-linux:
+prebuild:
+	node src/electron/electron-prebuild.js
+
+build-linux: prebuild
 	yarn run electron-builder
 
-build-windows:
+build-windows: prebuild
 	yarn run electron:builder --windows
 
-up:
-	docker-compose up --build
-
-app-up:
+electron-up: prebuild
 	yarn run electron .
+
+webapp-up:
+	docker-compose up --build
