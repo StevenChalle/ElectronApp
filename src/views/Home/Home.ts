@@ -1,4 +1,8 @@
+import HelloWorld from '@/components/HelloWorld/HelloWorld.vue'
 
 export default {
-    name: 'Home'
+    name: 'HomePage',
+    components: {
+        HelloWorld
+    }
 }
