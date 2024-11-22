@@ -1,5 +1,7 @@
 import { defineComponent } from 'vue'
 
+import { IImage } from '@/lib/Types'
+
 export default defineComponent({
     name: 'ImageListComponent',
     emits: [
@@ -7,16 +9,23 @@ export default defineComponent({
     ],
     setup () {
         return {
-            images: [
-                'VerticalImage',
-                'HorizontalImage',
-                'VerticalVideo',
-                'HorizontalVideo',
-                '3D']
+            images: [{
+                name: 'verticalImage',
+                frameCount: 1
+            }, {
+                name: 'horizontalImage',
+                frameCount: 1
+            }, {
+                name: 'verticalVideo',
+                frameCount: 87
+            }, {
+                name: 'horizontalVideo',
+                frameCount: 138
+            }]
         }
     },
     methods: {
-        selectImage (image: string) {
+        selectImage (image: IImage) {
             this.$emit('selected-image', image)
         }
     }

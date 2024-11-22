@@ -1,11 +1,23 @@
-import { defineComponent } from 'vue'
+import { defineComponent, PropType, ref, watch } from 'vue'
+
+import { IImage } from '@/lib/Types'
 
 export default defineComponent({
     name: 'ImageListComponent',
     props: {
         image: {
-            required: true,
-            type: String
+            default: undefined,
+            required: false,
+            type: Object as PropType<IImage>
+        }
+    },
+    setup (props) {
+        const frameIndex = ref(1)
+
+        watch(() => props.image, () => frameIndex.value = 1)
+
+        return {
+            frameIndex
         }
     }
 })
