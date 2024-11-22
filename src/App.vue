@@ -1,15 +1,32 @@
 <template>
-    <div id="app">
-        <nav>
-            <router-link to="/">Home</router-link>
-            <router-link to="/about" style="margin-left: 5px;">About</router-link>
-        </nav>
+    <component :is="layout">
         <router-view />
-    </div>
+    </component>
 </template>
 
 <script lang="ts">
 import { Vue } from 'vue-class-component'
+import { useRoute } from 'vue-router'
+import { markRaw } from 'vue'
 
-export default class App extends Vue {}
+import DefaultLayout from '@/layouts/DefaultLayout/DefaultLayout.vue'
+import EmptyLayout from '@/layouts/EmptyLayout/EmptyLayout.vue'
+
+export default class App extends Vue {
+    layouts = {
+        DefaultLayout: markRaw(DefaultLayout),
+        EmptyLayout: markRaw(EmptyLayout)
+    }
+    route = useRoute()
+
+    get layout() {
+        const layoutName = this.route.meta.layout || 'DefaultLayout'
+
+        let layout
+        for (const objectEntry of Object.entries(this.layouts))
+            if (objectEntry[0] === layoutName) layout = objectEntry[1]
+
+        return layout
+    }
+}
 </script>

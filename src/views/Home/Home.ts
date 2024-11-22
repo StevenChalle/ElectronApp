@@ -1,8 +1,22 @@
-import HelloWorld from '@/components/HelloWorld/HelloWorld.vue'
+import { defineComponent, ref } from 'vue'
 
-export default {
+import ImageList from '@/components/ImageList/ImageList.vue'
+import Viewer from '@/components/Viewer/Viewer.vue'
+
+export default defineComponent({
     name: 'HomePage',
     components: {
-        HelloWorld
+        ImageList,
+        Viewer
+    },
+    setup () {
+        return {
+            image: ref('')
+        }
+    },
+    methods: {
+        handleSelectedImage (image: string) {
+            this.image = image
+        }
     }
-}
+})

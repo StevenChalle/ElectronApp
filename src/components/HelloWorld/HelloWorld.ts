@@ -1,6 +1,6 @@
-import { ref } from 'vue'
+import { defineComponent, ref } from 'vue'
 
-export default {
+export default defineComponent({
     name: 'HelloWorldComponent',
     props: {
         msg: {
@@ -20,4 +20,4 @@ export default {
             console.log('Hello World set up !')
         }
     }
-}
+})
