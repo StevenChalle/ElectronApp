@@ -7,6 +7,7 @@ import {
     VAppBar,
     VAppBarTitle,
     VBtn,
+    VCheckbox,
     VCol,
     VContainer,
     VImg,
@@ -14,6 +15,7 @@ import {
     VListItem,
     VMain,
     VRow,
+    VSelect,
     VSlider
 } from 'vuetify/components'
 import 'vuetify/styles'
@@ -24,6 +26,7 @@ const vuetify = createVuetify({
         VAppBar,
         VAppBarTitle,
         VBtn,
+        VCheckbox,
         VCol,
         VContainer,
         VImg,
@@ -31,6 +34,7 @@ const vuetify = createVuetify({
         VListItem,
         VMain,
         VRow,
+        VSelect,
         VSlider
     }
 })

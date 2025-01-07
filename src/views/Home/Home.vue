@@ -10,7 +10,7 @@
         </v-col>
 
         <v-col cols="10" class="bg-teal-lighten-2">
-            <Viewer :image="selectedImage" />
+            <Viewer v-if="selectedImage" :image="selectedImage" />
         </v-col>
 
     </v-row>
